@@ -1,4 +1,4 @@
-import { ThumbUpAltOutlined, ThumbUpOffAltOutlined } from "@mui/icons-material";
+import { ChatOutlined, SendOutlined, ShareOutlined, ThumbUpAltOutlined } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 import "../styles/Post.css";
 import InputOption from "./InputOption";
@@ -17,7 +17,10 @@ function Post({ message, name, description, photoUrl }) {
         <p>{message}</p>
       </div>
       <div className="post_bottoms">
-        <InputOption Icon={ThumbUpAltOutlined} title="Like" />
+        <InputOption Icon={ThumbUpAltOutlined} title="Like" color="gray" />
+        <InputOption Icon={ChatOutlined} title="Comments" color="gray" />
+        <InputOption Icon={ShareOutlined} title="Share" color="gray" />
+        <InputOption Icon={SendOutlined} title="Send" color="gray" />
       </div>
     </section>
   );

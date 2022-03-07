@@ -26,3 +26,9 @@
 .post_info > h2 {
      font-size: 15px;
 }
+
+.post_bottoms {
+     display: flex;
+     align-items: center;
+     justify-content: space-evenly;
+}

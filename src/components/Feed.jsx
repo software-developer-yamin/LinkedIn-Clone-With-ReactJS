@@ -1,9 +1,22 @@
-import { CalendarViewDay, Create, EventNote, Image, Subscript, Subscriptions } from "@mui/icons-material";
+import {
+  CalendarViewDay,
+  Create,
+  EventNote,
+  Image,
+  Subscriptions,
+} from "@mui/icons-material";
+import { useState } from "react";
 import "../styles/Feed.css";
 import InputOption from "./InputOption";
 import Post from "./Post";
 
 function Feed() {
+  const [posts, setPosts] = useState([]);
+
+  const sendPost = async (e) => {
+    e.preventDefault();
+  };
+
   return (
     <section className="feed">
       <header className="feed_inputContainer">
@@ -11,7 +24,7 @@ function Feed() {
           <Create />
           <form>
             <input type="text" />
-            <button hidden type="submit">
+            <button hidden type="submit" onClick={sendPost} >
               Send
             </button>
           </form>
@@ -28,6 +41,9 @@ function Feed() {
         </div>
       </header>
       <main>
+        {posts.map((post) => (
+          <Post />
+        ))}
         <Post
           name="name"
           description="description"
