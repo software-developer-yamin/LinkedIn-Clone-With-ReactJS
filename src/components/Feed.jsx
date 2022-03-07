@@ -20,11 +20,19 @@ function Feed() {
           <InputOption title="Photo" Icon={Image} color="#70B5F9" />
           <InputOption title="Video" Icon={Subscriptions} color="#E7A33E" />
           <InputOption title="Event" Icon={EventNote} color="#C0CBCD" />
-          <InputOption title="Write article" Icon={CalendarViewDay} color="#7FC15E" />
+          <InputOption
+            title="Write article"
+            Icon={CalendarViewDay}
+            color="#7FC15E"
+          />
         </div>
       </header>
       <main>
-        <Post />
+        <Post
+          name="name"
+          description="description"
+          message="messaging goes here"
+        />
       </main>
     </section>
   );
