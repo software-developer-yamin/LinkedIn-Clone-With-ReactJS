@@ -1,8 +1,16 @@
 .headerOption {
-     display: flex;
-     align-items: center;
-     flex-direction: column;
-     margin-right: 20px;
-     color: gray;
-     cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 20px;
+  color: gray;
+  cursor: pointer;
+}
+
+.headerOption_icon {
+     object-fit: contain;
+}
+
+.headerOption:hover {
+  color: black;
 }

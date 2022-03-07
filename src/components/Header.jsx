@@ -1,4 +1,10 @@
-import { Home, SupervisorAccount } from "@mui/icons-material";
+import {
+  BusinessCenter,
+  Chat,
+  Home,
+  Notifications,
+  SupervisorAccount,
+} from "@mui/icons-material";
 import SearchIcon from "@mui/icons-material/Search";
 import "../styles/Header.css";
 import HeaderOption from "./HeaderOption";
@@ -19,6 +25,12 @@ function Header() {
       <section className="header_right">
         <HeaderOption Icon={Home} title="Home" />
         <HeaderOption Icon={SupervisorAccount} title="My Network" />
+        <HeaderOption Icon={BusinessCenter} title="Jobs" />
+        <HeaderOption Icon={Chat} title="Messaging" />
+        <HeaderOption Icon={Notifications} title="Notifications" />
+        <HeaderOption
+          avatar="https://i.pinimg.com/originals/50/8a/08/508a0814c20c3bd97f09503a983f1655.jpg"
+        />
       </section>
     </header>
   );
