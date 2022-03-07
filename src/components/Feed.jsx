@@ -5,6 +5,7 @@ import {
   Image,
   Subscriptions,
 } from "@mui/icons-material";
+import { serverTimestamp } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../firebase";
 import "../styles/Feed.css";
@@ -13,18 +14,33 @@ import Post from "./Post";
 
 function Feed() {
   const [posts, setPosts] = useState([]);
+  const [input, setInput] = useState("");
 
   useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) => (
-      setPosts(snapshot.docs.map(doc => ({
-        id: doc.id,
-        data: doc.data(),
-      })))
-    ))
+    db.collection("posts")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) =>
+        setPosts(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }))
+        )
+      );
   }, [db]);
 
   const sendPost = async (e) => {
     e.preventDefault();
+
+    db.collection("posts").add({
+      name: "name",
+      description: "description",
+      message: input,
+      photoUrl: "photoUrl",
+      timestamp: serverTimestamp(),
+    });
+
+    setInput("");
   };
 
   return (
@@ -33,7 +49,11 @@ function Feed() {
         <div className="feed_input">
           <Create />
           <form>
-            <input type="text" />
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+            />
             <button hidden type="submit" onClick={sendPost}>
               Send
             </button>
@@ -51,14 +71,15 @@ function Feed() {
         </div>
       </header>
       <main>
-        {posts.map((post) => (
-          <Post />
+        {posts.map(({ id, data: { message, name, description, photoUrl } }) => (
+          <Post
+            name={name}
+            message={message}
+            description={description}
+            photoUrl={photoUrl}
+            key={id}
+          />
         ))}
-        <Post
-          name="name"
-          description="description"
-          message="messaging goes here"
-        />
       </main>
     </section>
   );
