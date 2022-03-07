@@ -1,4 +1,5 @@
 import SearchIcon from "@mui/icons-material/Search";
+import "../styles/Header.css";
 
 function Header() {
   return (
