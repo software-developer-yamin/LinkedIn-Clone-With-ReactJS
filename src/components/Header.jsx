@@ -1,3 +1,4 @@
+import { Home, SupervisorAccount } from "@mui/icons-material";
 import SearchIcon from "@mui/icons-material/Search";
 import "../styles/Header.css";
 import HeaderOption from "./HeaderOption";
@@ -16,8 +17,8 @@ function Header() {
         </div>
       </section>
       <section className="header_right">
-        <HeaderOption title="Home" />
-        <HeaderOption title="My Network" />
+        <HeaderOption Icon={Home} title="Home" />
+        <HeaderOption Icon={SupervisorAccount} title="My Network" />
       </section>
     </header>
   );
