@@ -33,3 +33,9 @@
      outline-width: 0;
      font-weight: 600;
 }
+
+.feed_inputOption {
+     display: flex;
+     justify-content:space-evenly;
+     align-items: center;
+}
