@@ -1,4 +1,4 @@
-import CreateIcon from "@mui/icons-material/Create";
+import { Create, Image } from "@mui/icons-material";
 import "../styles/Feed.css";
 import InputOption from "./InputOption";
 
@@ -7,7 +7,7 @@ function Feed() {
     <section className="feed">
       <header className="feed_inputContainer">
         <div className="feed_input">
-          <CreateIcon />
+          <Create />
           <form>
             <input type="text" />
             <button hidden type="submit">
@@ -16,7 +16,7 @@ function Feed() {
           </form>
         </div>
         <div className="feed_inputOption">
-          <InputOption />
+          <InputOption title="Photo" Icon={Image} color="#70B5F9" />
         </div>
       </header>
     </section>
