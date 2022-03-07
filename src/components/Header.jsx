@@ -1,5 +1,6 @@
 import SearchIcon from "@mui/icons-material/Search";
 import "../styles/Header.css";
+import HeaderOption from "./HeaderOption";
 
 function Header() {
   return (
@@ -14,7 +15,10 @@ function Header() {
           <input type="text" />
         </div>
       </section>
-      <section className="header_right"></section>
+      <section className="header_right">
+        <HeaderOption title="Home" />
+        <HeaderOption title="My Network" />
+      </section>
     </header>
   );
 }
