@@ -1,6 +1,7 @@
 import { CalendarViewDay, Create, EventNote, Image, Subscript, Subscriptions } from "@mui/icons-material";
 import "../styles/Feed.css";
 import InputOption from "./InputOption";
+import Post from "./Post";
 
 function Feed() {
   return (
@@ -22,6 +23,9 @@ function Feed() {
           <InputOption title="Write article" Icon={CalendarViewDay} color="#7FC15E" />
         </div>
       </header>
+      <main>
+        <Post />
+      </main>
     </section>
   );
 }
