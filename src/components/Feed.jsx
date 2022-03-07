@@ -9,7 +9,7 @@ function Feed() {
           <CreateIcon />
           <form>
             <input type="text" />
-            <button type="submit">Send</button>
+            <button hidden type="submit">Send</button>
           </form>
         </div>
       </div>
