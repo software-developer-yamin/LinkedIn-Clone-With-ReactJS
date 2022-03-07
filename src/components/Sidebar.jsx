@@ -5,7 +5,10 @@ function Sidebar() {
   return (
     <section className="sidebar">
       <div className="sidebar_top">
-        <img src="" alt="" />
+        <img
+          src="https://media.istockphoto.com/photos/abstract-wave-picture-id1287065728?b=1&k=20&m=1287065728&s=170667a&w=0&h=d-AiO7_2elysdrypFIup7ZsvHwQ7dohK8kwv1o8swIs="
+          alt=""
+        />
         <Avatar className="sidebar_avatar" />
         <h2>Yamin</h2>
         <h4>developer.yamin@gmail.com</h4>
