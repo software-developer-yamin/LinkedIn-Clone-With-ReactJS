@@ -5,13 +5,23 @@ import {
   Image,
   Subscriptions,
 } from "@mui/icons-material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { db } from "../firebase";
 import "../styles/Feed.css";
 import InputOption from "./InputOption";
 import Post from "./Post";
 
 function Feed() {
   const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    db.collection("posts").onSnapshot((snapshot) => (
+      setPosts(snapshot.docs.map(doc => ({
+        id: doc.id,
+        data: doc.data(),
+      })))
+    ))
+  }, [db]);
 
   const sendPost = async (e) => {
     e.preventDefault();
@@ -24,7 +34,7 @@ function Feed() {
           <Create />
           <form>
             <input type="text" />
-            <button hidden type="submit" onClick={sendPost} >
+            <button hidden type="submit" onClick={sendPost}>
               Send
             </button>
           </form>
