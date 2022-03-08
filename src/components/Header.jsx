@@ -14,6 +14,7 @@ import HeaderOption from "./HeaderOption";
 
 function Header() {
   const dispatch = useDispatch();
+
   const logoutOFApp = () => {
     console.log("dispatch");
     dispatch(logout());
@@ -38,10 +39,7 @@ function Header() {
         <HeaderOption Icon={BusinessCenter} title="Jobs" />
         <HeaderOption Icon={Chat} title="Messaging" />
         <HeaderOption Icon={Notifications} title="Notifications" />
-        <HeaderOption
-          avatar="https://i.pinimg.com/originals/50/8a/08/508a0814c20c3bd97f09503a983f1655.jpg"
-          onClick={logoutOFApp}
-        />
+        <HeaderOption avatar onClick={logoutOFApp} />
       </section>
     </header>
   );
