@@ -6,10 +6,20 @@ import {
   SupervisorAccount,
 } from "@mui/icons-material";
 import SearchIcon from "@mui/icons-material/Search";
+import { useDispatch } from "react-redux";
+import { logout } from "../features/users/userSlice";
+import { auth } from "../firebase";
 import "../styles/Header.css";
 import HeaderOption from "./HeaderOption";
 
 function Header() {
+  const dispatch = useDispatch();
+  const logoutOFApp = () => {
+    console.log("dispatch");
+    dispatch(logout());
+    auth.signOut();
+  };
+
   return (
     <header className="header">
       <section className="header_left">
@@ -30,6 +40,7 @@ function Header() {
         <HeaderOption Icon={Notifications} title="Notifications" />
         <HeaderOption
           avatar="https://i.pinimg.com/originals/50/8a/08/508a0814c20c3bd97f09503a983f1655.jpg"
+          onClick={logoutOFApp}
         />
       </section>
     </header>
