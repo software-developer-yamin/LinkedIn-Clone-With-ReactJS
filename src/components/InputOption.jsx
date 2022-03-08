@@ -1,6 +1,6 @@
 import "../styles/InputOption.css";
 
-function InputOption({ title, Icon, color }) {
+function InputOption({ title, Icon, color, onClick }) {
   return (
     <div className="InputOption">
       {Icon && color && <Icon style={{ color: color }} />}
