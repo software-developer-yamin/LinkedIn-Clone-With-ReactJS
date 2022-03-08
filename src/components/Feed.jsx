@@ -7,6 +7,9 @@ import {
 } from "@mui/icons-material";
 import { serverTimestamp } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import FlipMove from "react-flip-move";
+import { useSelector } from "react-redux";
+import { selectUser } from "../features/users/userSlice";
 import { db } from "../firebase";
 import "../styles/Feed.css";
 import InputOption from "./InputOption";
@@ -15,6 +18,7 @@ import Post from "./Post";
 function Feed() {
   const [posts, setPosts] = useState([]);
   const [input, setInput] = useState("");
+  const user = useSelector(selectUser);
 
   useEffect(() => {
     db.collection("posts")
@@ -33,10 +37,10 @@ function Feed() {
     e.preventDefault();
 
     db.collection("posts").add({
-      name: "name",
-      description: "description",
+      name: user.displayName,
+      description: user.email,
       message: input,
-      photoUrl: "photoUrl",
+      photoUrl: user.photoUrl || "",
       timestamp: serverTimestamp(),
     });
 
@@ -71,15 +75,19 @@ function Feed() {
         </div>
       </header>
       <main>
-        {posts.map(({ id, data: { message, name, description, photoUrl } }) => (
-          <Post
-            name={name}
-            message={message}
-            description={description}
-            photoUrl={photoUrl}
-            key={id}
-          />
-        ))}
+        <FlipMove>
+          {posts.map(
+            ({ id, data: { message, name, description, photoUrl } }) => (
+              <Post
+                name={name}
+                message={message}
+                description={description}
+                photoUrl={photoUrl}
+                key={id}
+              />
+            )
+          )}
+        </FlipMove>
       </main>
     </section>
   );
